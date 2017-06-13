@@ -62,6 +62,8 @@ Here is a `docker-compose.yml` example, which uses a persistent database, and li
           - webhook-site-db
         volumes:
           - ./.env:/opt/app/.env
+        ports:
+          - "80:80"
       webhook-site-db:
         image: mysql
         environment:
