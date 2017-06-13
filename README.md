@@ -96,6 +96,8 @@ You would need to include a `.env` file with the database details like the follo
     DB_USERNAME=app
     DB_PASSWORD=<PASSWORD>
 
+You should be able to see the app running in your browser at [http://localhost](http://localhost).
+
 ## Credits
 
 Borrows from [https://github.com/chrootLogin/docker-nextcloud](github.com/chrootLogin/docker-nextcloud).
