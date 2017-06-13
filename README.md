@@ -100,4 +100,4 @@ You should be able to see the app running in your browser at [http://localhost](
 
 ## Credits
 
-Borrows from [https://github.com/chrootLogin/docker-nextcloud](github.com/chrootLogin/docker-nextcloud).
+Takes inspiration from [https://github.com/chrootLogin/docker-nextcloud](github.com/chrootLogin/docker-nextcloud).
