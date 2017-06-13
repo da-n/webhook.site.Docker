@@ -1,0 +1,8 @@
+*.md
+!README*.md
+.git
+.cache
+.composer
+/opt/app
+/var/cache
+/tmp
