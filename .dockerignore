@@ -1,6 +1,7 @@
+.git
+.docker-compose.yml
 *.md
 !README*.md
-.git
 .cache
 .composer
 /opt/app
