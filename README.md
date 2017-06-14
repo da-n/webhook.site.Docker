@@ -1,6 +1,8 @@
 # webhook.site Docker
 
-This is a Dockerfile for [webhook.site](https://github.com/fredsted/webhook.site), a tool for testing webhooks.
+> Easily test HTTP webhooks with this handy tool that displays requests in realtime.
+
+This is a Dockerfile for [webhook.site](https://github.com/fredsted/webhook.site), an API and frontend to test your webhooks. Built on the PHP FPM 7.1 Alpine Linux image.
 
 ## Build it
 
@@ -31,7 +33,9 @@ You should now be able to see live results without the need to refresh.
 To have persistent data, you can do one of the following:
 
 1. Link the existing SQLite database via Docker volumes
-2. Add a MySQL or Postgresql database container and include the details in the `.env` file e.g.:
+2. Link a MySQL or Postgresql database container instance and include connection details in the `.env` file
+
+Example of including databsae `env` variables:
 
     DB_CONNECTION
     DB_HOST
@@ -40,7 +44,7 @@ To have persistent data, you can do one of the following:
     DB_USERNAME
     DB_PASSWORD
 
-Note after changing the above, you will need to re-run the migration as follows:
+Note after changing the above, you will need to re-run the migration once as follows:
 
     $ docker exec -it webhook_site sh
     $ cd /opt/app
@@ -53,9 +57,7 @@ Here is a `docker-compose.yml` example, which uses a persistent database, and li
     version: '3'
     services:
       webhook-site-app:
-        build:
-          context: .
-          dockerfile: Dockerfile
+        image: dahyphenn/webhook.site
         links:
           - webhook-site-db
         depends_on:
