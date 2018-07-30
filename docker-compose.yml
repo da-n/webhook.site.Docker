@@ -1,7 +1,7 @@
 version: '3'
 services:
   webhook-site-app:
-    image: webhook
+    build: .
     links:
       - redis-db
     depends_on:
