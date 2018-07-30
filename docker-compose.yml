@@ -1,0 +1,14 @@
+version: '3'
+services:
+  webhook-site-app:
+    image: webhook
+    links:
+      - redis-db
+    depends_on:
+      - redis-db
+    volumes:
+      - ./.env:/opt/app/.env
+    ports:
+      - "80:80"
+  redis-db:
+    image: redis
