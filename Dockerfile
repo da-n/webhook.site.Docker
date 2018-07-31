@@ -21,6 +21,7 @@ RUN set -ex \
         tar \
         nodejs \
         build-base \
+        libnotify \
 
     # PHP Extensions
     && docker-php-ext-install \
@@ -29,7 +30,7 @@ RUN set -ex \
         pdo_mysql \
         pdo_pgsql \
         pgsql \
-    
+
     # Add user for app
     && addgroup -g ${GID} app \
     && adduser -u ${UID} -h /opt/app -H -G app -s /sbin/nologin -D app \
@@ -67,7 +68,6 @@ RUN set -ex \
     && chown -R app:app /opt/app
 
 RUN npm install gulp-cli -g
-RUN npm install gulp-cli
 RUN cd /opt/app/ \
     && npm install && gulp
 
@@ -83,5 +83,5 @@ COPY root /
 # Make run.sh executable
 RUN chmod +x /usr/local/bin/entrypoint.sh
 
-# Run 
+# Run
 CMD ["/usr/local/bin/entrypoint.sh"]
