@@ -22,6 +22,7 @@ RUN set -ex \
         nodejs \
         build-base \
         libnotify \
+        redis \
 
     # PHP Extensions
     && docker-php-ext-install \
