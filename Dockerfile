@@ -20,6 +20,7 @@ RUN set -ex \
         supervisor \
         tar \
         nodejs \
+        build-base \
 
     # PHP Extensions
     && docker-php-ext-install \
@@ -67,7 +68,8 @@ RUN set -ex \
 
 RUN npm install gulp-cli -g
 RUN npm install gulp-cli
-RUN npm install && gulp
+RUN cd /opt/app/ \
+    && npm install && gulp
 
 # Empty out tmp dir
 RUN rm -rf /tmp/*
