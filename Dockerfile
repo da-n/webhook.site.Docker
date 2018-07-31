@@ -44,7 +44,7 @@ RUN set -ex \
     && php /tmp/composer-setup.php --no-ansi --install-dir=/usr/local/bin --filename=composer --snapshot \
 
     # Download latest
-    && git clone https://github.com/fredsted/webhook.site.git /opt/app/ \
+    && git clone https://github.com/bergonzzi/webhook.site.git /opt/app/ \
 
     # Remove dev packages and clear package cache
     && apk del \
