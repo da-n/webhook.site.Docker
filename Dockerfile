@@ -28,19 +28,22 @@ RUN set -ex \
         pgsql
 
 # NodeJS stuff
-RUN apk add --update --no-cachce \
+RUN set -ex \
+    apk add --update --no-cache \
     nodejs \ 
     nodejs-npm
 
 RUN npm install gulp-cli -g
     
 # Add user for app
-RUN addgroup -g ${GID} app \
+RUN set -ex \
+    addgroup -g ${GID} app \
     && adduser -u ${UID} -h /opt/app -H -G app -s /sbin/nologin -D app \
     && mkdir -p /opt/app \
 
 # Download Composer and sig
-RUN curl -o /tmp/composer-setup.php https://getcomposer.org/installer \
+RUN set -ex \
+    curl -o /tmp/composer-setup.php https://getcomposer.org/installer \
     && curl -o /tmp/composer-setup.sig https://composer.github.io/installer.sig \
 
     # Verify we're installing Composer
