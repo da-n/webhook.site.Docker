@@ -43,9 +43,10 @@ RUN set -ex \
 
     # Verify we're installing Composer
     && php -r "if (hash('SHA384', file_get_contents('/tmp/composer-setup.php')) !== trim(file_get_contents('/tmp/composer-setup.sig'))) { unlink('/tmp/composer-setup.php'); echo 'Invalid installer' . PHP_EOL; exit(1); }" \
-    && php /tmp/composer-setup.php --no-ansi --install-dir=/usr/local/bin --filename=composer --snapshot \
+    && php /tmp/composer-setup.php --no-ansi --install-dir=/usr/local/bin --filename=composer --snapshot
 
-    # Download latest
+# Download latest
+RUN set -ex \
     && git clone https://github.com/bergonzzi/webhook.site.git /opt/app/ \
 
     # Remove dev packages and clear package cache
