@@ -7,7 +7,7 @@ ARG GID=1501
 
 # Update and install packages
 RUN set -ex \
-    && echo http://dl-2.alpinelinux.org/alpine/edge/community/ >> /etc/apk/repositories \
+    && echo http://dl-2.alpinelinux.org/alpine/edge/community/ >> /etc/apk/repositories
 
 RUN apk add --update --no-cache \
         alpine-sdk \
