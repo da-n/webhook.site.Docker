@@ -5,11 +5,9 @@ MAINTAINER Daniel Davidson <github.com/da-n>
 ARG UID=1501
 ARG GID=1501
 
-# Update and install packages
 RUN set -ex \
-    && echo http://dl-2.alpinelinux.org/alpine/edge/community/ >> /etc/apk/repositories
-
-RUN apk add --update --no-cache \
+    && echo http://dl-2.alpinelinux.org/alpine/edge/community/ >> /etc/apk/repositories \
+    && apk add --update --no-cache \
         alpine-sdk \
         autoconf \
         curl \
@@ -19,12 +17,10 @@ RUN apk add --update --no-cache \
         postgresql-dev \
         postgresql-libs \
         supervisor \
-        redis \
-        tar
+        tar \
 
-# PHP Extensions
-RUN apk add --update --no-cache \ 
-        docker-php-ext-install \
+    # PHP Extensions
+    && docker-php-ext-install \
         curl \
         mysqli \
         pdo_mysql \
@@ -37,7 +33,6 @@ RUN apk add --update --no-cachce \
     nodejs-npm
 
 RUN npm install gulp-cli -g
-
     
 # Add user for app
 RUN addgroup -g ${GID} app \
