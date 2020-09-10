@@ -1,3 +1,7 @@
+Archived: There is now an official Docker image and docker-compose example available on the [offical project](https://github.com/fredsted/webhook.site) making this repo redundant.
+
+---
+
 # webhook.site Docker
 
 > Easily test HTTP webhooks with this handy tool that displays requests in realtime.
